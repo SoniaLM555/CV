@@ -3,6 +3,6 @@
     "webroot": "/public"
   },
   "hooks": {
-    "postBuild": "php bin/console cache:clear --env=prod && php bin/console assets:install public --symlink"
+    "postBuild": "php bin/console cache:clear --env=prod && php bin/console assets:install public"
   }
 }
