@@ -1,4 +1,4 @@
-json{
+{
   "deploy": {
     "webroot": "/public"
   },
