@@ -33,12 +33,13 @@ symfony serve
 ## Déploiement sur Clever Cloud
 
 ### 1. Créer l'application
+
 - Créer un compte sur [Clever Cloud](https://www.clever-cloud.com/)
 - Créer une nouvelle application PHP
 - Connecter le dépôt GitHub
 
 ### 2. Configurer les variables d'environnement
-Dans l'interface Clever Cloud, ajouter :
+Dans l'interface Clever Cloud, ajouter dans "Environnement variables" les variables suivantes et leur valeur:
 - APP_ENV=prod
 - CC_PHP_VERSION=8
 - CC_COMPOSER_VERSION=2
@@ -58,18 +59,21 @@ Créer `clevercloud/php.json` :
 
 ### 4. Configurer Apache
 Créer `public/.htaccess` :
+```bash
 DirectoryIndex index.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
-````
+```
 
-### 4. Déployer
+### 5. Déployer
+```bash
 git add .
 git commit -m "Configuration Clever Cloud"
 git push origin main
+```
 
 Le déploiement se lance automatiquement à chaque push.
 
